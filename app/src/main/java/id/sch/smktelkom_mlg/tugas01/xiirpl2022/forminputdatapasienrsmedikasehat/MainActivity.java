@@ -10,8 +10,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     EditText etNama;
     Button bOk;
-    TextView tvNama;
-
+    TextView tvNama, tvJK;
 
 
     @Override
