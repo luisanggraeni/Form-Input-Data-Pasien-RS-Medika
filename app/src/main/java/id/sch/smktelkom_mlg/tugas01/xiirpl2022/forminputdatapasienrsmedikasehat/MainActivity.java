@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -17,9 +18,10 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity {
     EditText etNama;
     Button bOk;
-    TextView tvNama, tvJK, tvProv, tvKota;
+    TextView tvNama, tvJK, tvProv, tvKel;
     RadioButton rbLaki, rbPr;
     Spinner spProv, spKota;
+    CheckBox cbdemam, cbflu, cbpusing;
     String[][] arKota = {{""}, {"Aceh Barat", "Aceh Barat Daya", "Acah Besar",
             "Aceh Jaya", "Aceh Selatan", "Aceh Tengah", "Banda Aceh",
             "Langsa", "Lhokseumawe", "Sabang", "Subulussalam"}, {"Badung", "Bangli",
@@ -59,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         spProv = (Spinner) findViewById(R.id.spinnerAsal);
         spKota = (Spinner) findViewById(R.id.spinnerAsal1);
         tvProv = (TextView) findViewById(R.id.tvprov);
+        cbdemam = (CheckBox) findViewById(R.id.checkBoxDemam);
+        cbflu = (CheckBox) findViewById(R.id.checkBoxFlu);
+        cbpusing = (CheckBox) findViewById(R.id.checkBoxPusing);
+        tvKel = (TextView) findViewById(R.id.tvkel);
 
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, listKota);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -84,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 doJK();
                 doProcess();
                 doAsal();
+                doKel();
             }
 
             private void doProcess() {
@@ -93,6 +100,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void doKel() {
+        String hasil = "Keluhan anda :\n";
+        int startlen = hasil.length();
+        if (cbdemam.isChecked()) hasil += cbdemam.getText() + "\n";
+        if (cbflu.isChecked()) hasil += cbflu.getText() + "\n";
+        if (cbpusing.isChecked()) hasil += cbpusing.getText() + "\n";
+        if (hasil.length() == startlen) hasil += "Tidak ada pada pilihan";
+        tvKel.setText(hasil);
     }
 
     private void doAsal() {

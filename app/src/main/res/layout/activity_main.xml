@@ -135,9 +135,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_below="@+id/spinnerAsal1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="43dp"
+            android:layout_alignEnd="@+id/title"
+            android:layout_alignRight="@+id/title"
+            android:layout_below="@+id/checkBoxPusing"
             android:background="@drawable/bgbtn"
             android:text="Input"
             android:textColor="@android:color/white" />
@@ -188,6 +188,57 @@
             android:textColor="@android:color/black"
             android:textSize="18dp" />
 
+        <TextView
+            android:id="@+id/textViewKeluhan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/spinnerAsal1"
+            android:text="Keluhan :"
+            android:textColor="@android:color/black"
+            android:textSize="18dp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxDemam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/checkBoxFlu"
+            android:layout_alignStart="@+id/checkBoxFlu"
+            android:layout_below="@+id/textViewKeluhan"
+            android:text="Demam"
+            android:textSize="18dp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxFlu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkBoxDemam"
+            android:layout_toLeftOf="@+id/textViewJudul"
+            android:text="Flu"
+            android:textSize="18dp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxPusing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/checkBoxFlu"
+            android:layout_alignStart="@+id/checkBoxFlu"
+            android:layout_below="@+id/checkBoxFlu"
+            android:layout_toLeftOf="@+id/title"
+            android:text="Pusing"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tvkel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tvprov"
+            android:layout_marginTop="15dp"
+            android:textColor="@android:color/black"
+            android:textSize="18dp" />
     </RelativeLayout>
 </ScrollView>
 
