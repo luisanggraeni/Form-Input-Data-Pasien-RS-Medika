@@ -1,17 +1,168 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="id.sch.smktelkom_mlg.tugas01.xiirpl2022.forminputdatapasienrsmedikasehat.MainActivity">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="id.sch.smktelkom_mlg.tugas01.xiirpl2022.forminputdatapasienrsmedikasehat.MainActivity">
+
+        <ImageView
+
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+
+            android:layout_alignParentLeft="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-20dp"
+            android:src="@drawable/daun" />
+
+        <TextView
+            android:id="@+id/textViewJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_centerHorizontal="true"
+            android:text="Rumah Sakit Medika "
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageView"
+            android:layout_marginTop="40dp"
+            android:text="Nama Lengkap : "
+            android:textColor="@android:color/black"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/nama"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/textViewNama"
+            android:layout_marginTop="-10dp"
+            android:layout_toEndOf="@+id/textViewNama"
+            android:layout_toRightOf="@+id/textViewNama"
+            android:ems="10"
+            android:hint="Nama"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/textViewJK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/nama"
+            android:text="Jenis Kelamin  :"
+            android:textColor="@android:color/black"
+            android:textSize="18dp" />
+
+        <GridLayout
+            android:id="@+id/gridLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewNama"
+            android:layout_toEndOf="@+id/textViewJK"
+            android:layout_toRightOf="@+id/textViewJK">
+
+            <RadioGroup
+                android:id="@+id/jeniskelamin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/laki2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Laki-laki"
+                    android:textSize="18dp" />
+
+                <RadioButton
+                    android:id="@+id/perempuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perempuan"
+                    android:textSize="18dp" />
+            </RadioGroup>
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/textViewAsal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/gridLayout2"
+            android:text="Asal           : "
+            android:textColor="@android:color/black"
+            android:textSize="18dp" />
+
+        <Spinner
+            android:id="@+id/spinnerAsal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+
+            android:layout_below="@+id/textViewAsal"
+            android:entries="@array/provinsi" />
+
+        <Spinner
+            android:id="@+id/spinnerAsal1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/spinnerAsal"
+            android:layout_marginTop="30dp" />
+
+        <Button
+            android:id="@+id/buttonOK"
+            style="@style/Base.TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/spinnerAsal1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="43dp"
+            android:background="@drawable/bgbtn"
+            android:text="Input"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonOK"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="data pasien"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tvnama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="50dp"
+            android:textColor="@android:color/black"
+            android:textSize="18dp" />
+
+
+    </RelativeLayout>
+</ScrollView>
+
 
