@@ -3,16 +3,48 @@ package id.sch.smktelkom_mlg.tugas01.xiirpl2022.forminputdatapasienrsmedikasehat
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     EditText etNama;
     Button bOk;
-    TextView tvNama, tvJK;
+    TextView tvNama, tvJK, tvProv, tvKota;
     RadioButton rbLaki, rbPr;
+    Spinner spProv, spKota;
+    String[][] arKota = {{""}, {"Aceh Barat", "Aceh Barat Daya", "Acah Besar",
+            "Aceh Jaya", "Aceh Selatan", "Aceh Tengah", "Banda Aceh",
+            "Langsa", "Lhokseumawe", "Sabang", "Subulussalam"}, {"Badung", "Bangli",
+            "Buleleng", "Gianyar", "Jembrana", "Tabanan", "Denpasar"}, {"Lebak", "Pandeglang", "Kabupaten Serang",
+            "Kabupaten Tangerang", "Cilegon", "Kota Serang", "Kota Tangerang", "Kota Tangerang Selatan"},
+            {"Seluma", "Bengkulu"}, {"Kabupaten Gorontalo", "Gorontalo Utara", "Pohuwato", "Kota Gorontalo"},
+            {"Kepulauan Seribu", "Jakarta Barat", "Jakarta Pusat", "Jakarta Selatan", "Jakarta Timur", "Jakarta Utara"},
+            {"Jambi"}, {"Kabupaten Bandung", "Bandung Barat", "Bekasi", "Bogor", "Ciamis", "Cianjur", "Cirebon", "Garut", "Indramayu",
+            "Karawang", "Kuningan", "Majalengka", "Pangandaran", "Purwakarta", "Subang", "Sukabumi", "Sumedang", "Tasikmalaya", "Kota Bandung", "Kota Banjar",
+            "Kota Bekasi", "Kota Bogor", "Kota Cimahi", "Kota Cirebon", "Kota Depok", "Kota Sukabumi", "Kota Tasikmalaya"}, {"Banjarnegara", "Banyumas",
+            "Batang", "Blora", "Boyolali", "Brebes", "Cilacap", "Demak", "Grobogan", "Jepara", "KarangAnyar", "Kebumen", "Kendal", "Klaten", "Kudus", "Magelang",
+            "Pati", "Pekalongan", "Pemalang", "Purbalingga", "Purworejo", "Rembang", "Semarang", "Sragen", "Sukoharjo", "Tegal", "Temanggung", "Wonogiri",
+            "Wonosobo", "Kota Magelang", "Kota Pekalongan", "Salatiga", "Semarang", "Surakarta", "Kota Tegal"}, {"Bangkalan", "Banyuwangi", "Blitar",
+            "Bojonegoro", "Bondowoso", "Gresik", "Jember", "Jombang", "Kediri", "Lamongan", "Lumjang", "Madiun", "Magetan", "Malang", "Mojokerto", "Nganjuk", "Ngawi", "Pacitan",
+            "Pamekasan", "Pasuruan", "Ponorogo", "Probolinggo", "Sampang", "Siduarjo", "Situbondo", "Sumenep", "Trenggalek", "Tuban", "Tulungagung", "Kota Batu",
+            "Kota Blitar", "Kota Madiun", "Kota Malang", "Kota Mojokerto", "Kota Pasuruan", "Kota Probolinggo", "Kota Surabaya"}, {"Sintang", "Pontianak", "Singkawang"},
+            {"Barito Selatan", "Barito Timur", "Barito Utara", "Palangkaraya"}, {"Banjarbaru", "Banjarmasin"}, {"Kutai Kertanegara", "Mahakam Ulu",
+            "Balikpapan", "Bontang", "Samarinda"}, {"Tarakan"}, {"Bangka", "Belitung"}, {"Kepulauan Anambas", "Lingga", "Natuna", "Batam", "Tanjung Pinang"},
+            {"Lampung Barat", "Lampung Selatan", "Lampung Tengah", "Lampung Timur", "Lampung Utara", "Bandar Lampung", "Metro"}, {"Maluku Tengah", "Maluku Tenggara",
+            "Maluku Barat Daya", "Maluku Tenggara Barat", "Ambon", "Kepulauan Aru",}, {"Halmahera Barat", "Halmahera Tengah", "Halmahera Timur", "Halmahera Selatan",
+            "Halmahera Utara", "Kepulauan Sula", "Pulau Morotai", "Pulau Taliabu", "Ternate", "Tidore Kepulauan"}, {"Bima"}, {"Alor"}, {"Irian Jaya"}, {"Manokwari"},
+            {"Pekanbaru"}, {"Mamuju"}, {"Palu"}, {"Makasar"}, {"Kendari"}, {"Manado"}, {"Padang"}, {"Palembang"}, {"Medan"}, {"Sleman", "Kota Yogyakarta"}};
+
+    ArrayList<String> listKota = new ArrayList<>();
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +56,34 @@ public class MainActivity extends AppCompatActivity {
         rbLaki = (RadioButton) findViewById(R.id.laki2);
         rbPr = (RadioButton) findViewById(R.id.perempuan);
         tvJK = (TextView) findViewById(R.id.tvjk);
+        spProv = (Spinner) findViewById(R.id.spinnerAsal);
+        spKota = (Spinner) findViewById(R.id.spinnerAsal1);
+        tvProv = (TextView) findViewById(R.id.tvprov);
 
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, listKota);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spKota.setAdapter(adapter);
+        spProv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
+                listKota.clear();
+                listKota.addAll(Arrays.asList(arKota[pos]));
+                adapter.notifyDataSetChanged();
+                spKota.setSelection(0);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         bOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 doJK();
                 doProcess();
+                doAsal();
             }
 
             private void doProcess() {
@@ -39,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void doAsal() {
+        tvProv.setText("Asal daerah : provinsi " + spProv.getSelectedItem().toString() + " Kota " + spKota.getSelectedItem().toString());
     }
 
 
