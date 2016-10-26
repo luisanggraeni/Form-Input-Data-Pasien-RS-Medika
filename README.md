@@ -1,7 +1,11 @@
 #_FORM INPUT DATA RS MEDIKA_
+
+Penjelasan:<br>
 ***
-Aplikasi Input data ini berfungsi untuk memasukkan data pasien yang akan dirawat di RS MEDIKA.<br>
+Aplikasi Input data ini berfungsi untuk membantu  memasukkan data pasien yang akan dirawat di RS MEDIKA.<br>
 Yang perlu diisikan sebagai data pasien yaitu : nama pasien,jenis kelamin,asal,dan keluhan yang dialami pasien.<br>
+Misalkan banyak pasien yang akan dirawat dirumah sakit,tidak perlu lama-lama antri untuk mengisi data pasien,hanya antri untuk membayar biaya perawatan.karena cukup mengisi data pada aplikasi yang tersambung ke rumah sakit tersebut,dan pegawai hanya melayani pasien yang akan mengurus biaya perawatan pasien selama di rumah sakit tersebut.
+
 
 Screen shot :
 ***
@@ -19,4 +23,6 @@ Download APK
 ***
 https://drive.google.com/file/d/0B82REPv4i2gqdmNJTG0zYXFGajA/view?usp=sharing
 
+Identitas
+***
 Luis Anggraeni,XIIRPL2,22,4369/1267.063,SMK Telkom Malang
